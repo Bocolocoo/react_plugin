@@ -53,6 +53,7 @@ public class SpeedCheckerPluginModule extends ReactContextBaseJavaModule {
         } else {
             SpeedcheckerSDK.init(reactContext);
         }
+		Locale locale = Locale.getDefault();
 		switch(locale.getLanguage()){
 			case "en":
 				decimalFormat = new DecimalFormat("#.##");
