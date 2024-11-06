@@ -23,6 +23,7 @@ import com.speedchecker.android.sdk.Public.SpeedTestResult;
 import com.speedchecker.android.sdk.SpeedcheckerSDK;
 
 import java.text.DecimalFormat;
+import java.util.Locale;
 
 public class SpeedCheckerPluginModule extends ReactContextBaseJavaModule {
 
@@ -52,6 +53,17 @@ public class SpeedCheckerPluginModule extends ReactContextBaseJavaModule {
         } else {
             SpeedcheckerSDK.init(reactContext);
         }
+		switch(locale.getLanguage()){
+			case "en":
+				decimalFormat = new DecimalFormat("#.##");
+				break;
+			case "fr":
+				decimalFormat = new DecimalFormat("#,##");
+				break;
+			default:
+				decimalFormat = new DecimalFormat("#.##");
+				break;
+		}
     }
 
     private void checkPermissions() {
